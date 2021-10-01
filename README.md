@@ -23,3 +23,4 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
+<img width="866" alt="Screen Shot 2021-09-30 at 7 56 23 PM" src="https://user-images.githubusercontent.com/65201372/135558524-f26521bb-6cb0-4f21-95d5-36dc7a05564a.png">

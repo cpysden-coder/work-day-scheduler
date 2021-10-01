@@ -192,6 +192,9 @@ function time() {
 
 time();
 
+
+
+
 //TODO:/check what this does
 function handleToDoSubmit(event) {
     event.preventDefault();
@@ -202,9 +205,34 @@ function handleToDoSubmit(event) {
 
 btnNine.on('submit', handleToDoSubmit);
 
-var todoIds = ["skill-name-a", "skill-name-b", "skill-name-c", "skill-name-d", "skill-name-e", "skill-name-f", "skill-name-g", "skill-name-h", "skill-name-i", ]
+var todoIds = ["skill-name-a", "skill-name-b", "skill-name-c", "skill-name-d", "skill-name-e", "skill-name-f", "skill-name-g", "skill-name-h", "skill-name-i",]
+var todoIdsCol = ["#skill-name-a", "#skill-name-b", "#skill-name-c", "#skill-name-d", "#skill-name-e", "#skill-name-f", "#skill-name-g", "#skill-name-h", "#skill-name-i",]
 var localStoreId = ["nameInputa", "nameInputb", "nameInputc", "nameInputd", "nameInpute", "nameInputf", "nameInputg", "nameInputh", "nameInputi",]
 
+
+// var timeSlots = [09, 10, 11, 12, 13, 14, 15, 16, 17];
+var timeSlots = [12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+function colorCode() {
+    for (let i = 0; i < todoIdsCol.length; i++) {
+        console.log(todoIdsCol.length);
+        console.log(todoIdsCol[i]);
+        skillName = todoIdsCol[i];
+        console.log(skillName + "this should be the skill-name-a or something")
+        timeSlot = timeSlots[i]
+        console.log(timeSlot + " these are the timeslots iterating")
+        var currentHour = moment().format('HH')
+        console.log(currentHour + " this is the current hour")
+        if (currentHour > timeSlot) {
+            $(skillName).css({ "background-color": "lightblue", "color": "white" });
+            console.log("lightblue")
+        } else if (currentHour == timeSlot) {
+            $(skillName).css({ "background-color": "red" });
+        } else {
+            $(skillName).css({ "background-color": "green" });}
+        }
+}
+colorCode();
 
 function renderLastUpdate() {
     // Use JSON.parse() to convert text to JavaScript object
@@ -213,7 +241,7 @@ function renderLastUpdate() {
         console.log(todoIds[i]);
         currentTodo = todoIds[i];
         var lastUpdate = localStorage.getItem(localStoreId[i]);
-        console.log("currentTodo" + currentTodo)
+        console.log("currentTodo" + currentTodo);
         console.log(lastUpdate + "====");
         if (lastUpdate !== null) {
             document.getElementById(currentTodo).placeholder = lastUpdate;
@@ -229,4 +257,5 @@ function init() {
     renderLastUpdate();
 }
 init();
+
 

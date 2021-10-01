@@ -4,6 +4,8 @@ body {
     line-height: 1;
   }
 
+
+
   hr {
       border: 1px solid grey
   }
@@ -72,5 +74,17 @@ body {
   .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
+  }
+
+  /* .col-8 {
+      background: lightsteelblue
+  } */
+
+  .form-control {
+      background: lightgray
+  }
+/* overwrite bootstrap placeholder font */
+  .form-control::-webkit-input-placeholder {
+    color: white;
   }
   

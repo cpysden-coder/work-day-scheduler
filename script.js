@@ -23,6 +23,7 @@ var formElh = $('#skills-form-h');
 var formEli = $('#skills-form-i');
 
 
+//Form submit actions
 var handleFormSubmita = function (event) {
     event.preventDefault();
 
@@ -37,13 +38,6 @@ var handleFormSubmita = function (event) {
     }
     console.log(nameInputa);
     localStorage.setItem('nameInputa', JSON.stringify(nameInputa));
-    // console.log(dateInput);
-
-    // printSkills(nameInput, dateInput);
-
-    // resets form
-    // nameInputEl.val('');
-    // dateInputEl.val('');
 };
 
 var handleFormSubmitb = function (event) {
@@ -184,7 +178,7 @@ formElg.on('submit', handleFormSubmitg);
 formElh.on('submit', handleFormSubmith);
 formEli.on('submit', handleFormSubmiti);
 
-
+//track time for jumbotron
 function time() {
     var ticker = moment().format('MM DD, YYYY [at] hh:mm:ss a')
     currentDay.text(ticker)
@@ -193,26 +187,19 @@ function time() {
 time();
 
 
-
-
-//TODO:/check what this does
-function handleToDoSubmit(event) {
-    event.preventDefault();
-    var nineAmTodo = $('input[name="nine-am-input]').val();
-    console.log(nineAmTodo);
-
-}
-
 btnNine.on('submit', handleToDoSubmit);
 
+//variables to iterate thru IDs to target items
 var todoIds = ["skill-name-a", "skill-name-b", "skill-name-c", "skill-name-d", "skill-name-e", "skill-name-f", "skill-name-g", "skill-name-h", "skill-name-i",]
 var todoIdsCol = ["#skill-name-a", "#skill-name-b", "#skill-name-c", "#skill-name-d", "#skill-name-e", "#skill-name-f", "#skill-name-g", "#skill-name-h", "#skill-name-i",]
 var localStoreId = ["nameInputa", "nameInputb", "nameInputc", "nameInputd", "nameInpute", "nameInputf", "nameInputg", "nameInputh", "nameInputi",]
 
 
-// var timeSlots = [09, 10, 11, 12, 13, 14, 15, 16, 17];
-var timeSlots = [12, 13, 14, 15, 16, 17, 18, 19, 20];
+var timeSlots = [09, 10, 11, 12, 13, 14, 15, 16, 17];
+// Testing array for color coding based on current time
+// var timeSlots = [12, 13, 14, 15, 16, 17, 18, 19, 20];
 
+//Change input field colors based on current time
 function colorCode() {
     for (let i = 0; i < todoIdsCol.length; i++) {
         console.log(todoIdsCol.length);
@@ -234,6 +221,8 @@ function colorCode() {
 }
 colorCode();
 
+
+//Persist data entered into Schedule
 function renderLastUpdate() {
     // Use JSON.parse() to convert text to JavaScript object
     for (let i = 0; i < todoIds.length; i++) {

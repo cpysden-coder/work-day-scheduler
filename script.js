@@ -4,11 +4,23 @@ var btnNine = $('#nine-am');
 var nameInputEla = $('#skill-name-a');
 var nameInputElb = $('#skill-name-b');
 var nameInputElc = $('#skill-name-c');
-var dateInputEl = $('#datepicker');
+var nameInputEld = $('#skill-name-d');
+var nameInputEle = $('#skill-name-e');
+var nameInputElf = $('#skill-name-f');
+var nameInputElg = $('#skill-name-g');
+var nameInputElh = $('#skill-name-h');
+var nameInputEli = $('#skill-name-i');
+// var dateInputEl = $('#datepicker');
 // var skillsListEl = $('#skills-list');
 var formEla = $('#skills-form-a');
 var formElb = $('#skills-form-b');
 var formElc = $('#skills-form-c');
+var formEld = $('#skills-form-d');
+var formEle = $('#skills-form-e');
+var formElf = $('#skills-form-f');
+var formElg = $('#skills-form-g');
+var formElh = $('#skills-form-h');
+var formEli = $('#skills-form-i');
 
 
 var handleFormSubmita = function (event) {
@@ -66,9 +78,111 @@ var handleFormSubmitc = function (event) {
     localStorage.setItem('nameInputc', JSON.stringify(nameInputc));
 };
 
+var handleFormSubmitd = function (event) {
+    event.preventDefault();
+
+
+    var nameInputd = nameInputEld.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInputd) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInputd);
+    localStorage.setItem('nameInputd', JSON.stringify(nameInputd));
+};
+
+var handleFormSubmite = function (event) {
+    event.preventDefault();
+
+
+    var nameInpute = nameInputEle.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInpute) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInpute);
+    localStorage.setItem('nameInpute', JSON.stringify(nameInpute));
+};
+
+var handleFormSubmitf = function (event) {
+    event.preventDefault();
+
+
+    var nameInputf = nameInputElf.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInputf) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInputf);
+    localStorage.setItem('nameInputf', JSON.stringify(nameInputf));
+};
+
+var handleFormSubmitg = function (event) {
+    event.preventDefault();
+
+
+    var nameInputg = nameInputElg.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInputg) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInputg);
+    localStorage.setItem('nameInputg', JSON.stringify(nameInputg));
+};
+
+var handleFormSubmith = function (event) {
+    event.preventDefault();
+
+
+    var nameInputh = nameInputElh.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInputh) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInputh);
+    localStorage.setItem('nameInputh', JSON.stringify(nameInputh));
+};
+
+var handleFormSubmiti = function (event) {
+    event.preventDefault();
+
+
+    var nameInputi = nameInputEli.val();
+    // var dateInput = dateInputEl.val();
+
+    if (!nameInputi) {
+        console.log('You need to fill out the form!');
+        alert("You need to fill out the form!")
+        return;
+    }
+    console.log(nameInputi);
+    localStorage.setItem('nameInputi', JSON.stringify(nameInputi));
+};
+
 formEla.on('submit', handleFormSubmita);
 formElb.on('submit', handleFormSubmitb);
 formElc.on('submit', handleFormSubmitc);
+formEld.on('submit', handleFormSubmitd);
+formEle.on('submit', handleFormSubmite);
+formElf.on('submit', handleFormSubmitf);
+formElg.on('submit', handleFormSubmitg);
+formElh.on('submit', handleFormSubmith);
+formEli.on('submit', handleFormSubmiti);
 
 
 function time() {
@@ -78,6 +192,7 @@ function time() {
 
 time();
 
+//TODO:/check what this does
 function handleToDoSubmit(event) {
     event.preventDefault();
     var nineAmTodo = $('input[name="nine-am-input]').val();
@@ -86,3 +201,32 @@ function handleToDoSubmit(event) {
 }
 
 btnNine.on('submit', handleToDoSubmit);
+
+var todoIds = ["skill-name-a", "skill-name-b", "skill-name-c", "skill-name-d", "skill-name-e", "skill-name-f", "skill-name-g", "skill-name-h", "skill-name-i", ]
+var localStoreId = ["nameInputa", "nameInputb", "nameInputc", "nameInputd", "nameInpute", "nameInputf", "nameInputg", "nameInputh", "nameInputi",]
+
+
+function renderLastUpdate() {
+    // Use JSON.parse() to convert text to JavaScript object
+    for (let i = 0; i < todoIds.length; i++) {
+        console.log(todoIds.length);
+        console.log(todoIds[i]);
+        currentTodo = todoIds[i];
+        var lastUpdate = localStorage.getItem(localStoreId[i]);
+        console.log("currentTodo" + currentTodo)
+        console.log(lastUpdate + "====");
+        if (lastUpdate !== null) {
+            document.getElementById(currentTodo).placeholder = lastUpdate;
+        } else {
+            return;
+        }
+    };
+};
+
+
+function init() {
+    // When the init function is executed, the code inside renderLastGrade function will also execute
+    renderLastUpdate();
+}
+init();
+
